@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.3] - 2025-01-02
+
+### 🔒 Security Updates
+- **Enhanced .gitignore rules** - added comprehensive security rules to prevent API keys and sensitive data leaks
+- **Browser data protection** - excluded chrome-device, firefox-device, safari-device directories
+- **Cache protection** - excluded browser-data, cache, temp, tmp directories
+- **API key protection** - excluded common API key file patterns (api_keys.txt, secrets.json, .env files)
+
+---
+
 ## [1.0.2] - 2025-01-02
 
 ### 🔧 Bug Fixes
