@@ -50,5 +50,25 @@ coverage/
 test/performance_test.dart
 test/speed_comparison_test.dart
 
+# Security: Prevent API keys and sensitive data from being committed
+# Browser data and cache files
+**/chrome-device/
+**/firefox-device/
+**/safari-device/
+**/edge-device/
+**/browser-data/
+**/cache/
+**/temp/
+**/tmp/
+
+# API keys and secrets (common patterns)
+**/api_keys.txt
+**/secrets.json
+**/config.json
+**/.env
+**/.env.local
+**/.env.production
+**/.env.development
+
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages 

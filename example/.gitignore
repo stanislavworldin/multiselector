@@ -79,6 +79,26 @@ app.*.map.json
 # Coverage
 coverage/
 
+# Security: Prevent API keys and sensitive data from being committed
+# Browser data and cache files
+**/chrome-device/
+**/firefox-device/
+**/safari-device/
+**/edge-device/
+**/browser-data/
+**/cache/
+**/temp/
+**/tmp/
+
+# API keys and secrets (common patterns)
+**/api_keys.txt
+**/secrets.json
+**/config.json
+**/.env
+**/.env.local
+**/.env.production
+**/.env.development
+
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
 !**/ios/**/default.mode2v3
