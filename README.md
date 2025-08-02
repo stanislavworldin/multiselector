@@ -35,7 +35,7 @@ Add the dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  multiselector: ^1.0.0
+  multiselector: ^1.0.2
 ```
 
 ## Usage
