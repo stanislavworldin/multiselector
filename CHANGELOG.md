@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2] - 2025-01-02
+
+### 🔧 Bug Fixes
+- **Fixed package structure** - removed unnecessary zip file from repository
+- **Updated version** - bumped to 1.0.2 for clean publication
+
+---
+
 ## [1.0.1] - 2024-12-19
 
 ### 🔧 Bug Fixes
