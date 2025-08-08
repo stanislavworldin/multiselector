@@ -28,8 +28,9 @@ void main() {
       ),
     ];
 
-    testWidgets('UniversalSelector displays correctly',
-        (WidgetTester tester) async {
+    testWidgets('UniversalSelector displays correctly', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -44,8 +45,9 @@ void main() {
       expect(find.byType(UniversalSelector), findsOneWidget);
     });
 
-    testWidgets('UniversalSelector shows selected item',
-        (WidgetTester tester) async {
+    testWidgets('UniversalSelector shows selected item', (
+      WidgetTester tester,
+    ) async {
       const testItem = SelectableItem(
         id: '1',
         name: 'Apple',

@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.4] - 2025-01-02
+
+### Improvements
+- Performance: Added debounce (220ms) to search input in `UniversalSelector` to reduce excessive rebuilds during typing
+- Fuzzy search: Added fast length-difference pre-check before computing Levenshtein distance; improved DEBUG logs
+- Safety: Made `SelectableItem.toString()` robust when `icon` is null
+- API unchanged: All changes are internal and backward compatible
+
+### Fixes
+- Replaced deprecated `withOpacity` usages with `withValues(alpha: ...)`
+- Import order and formatting aligned with lint rules
+
+---
+
 ## [1.0.3] - 2025-01-02
 
 ### 🔒 Security Updates

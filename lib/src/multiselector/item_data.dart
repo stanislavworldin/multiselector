@@ -101,7 +101,9 @@ class ItemData {
   /// [items] is the list of items to search in
   /// [query] is the search term
   static List<SelectableItem> searchItems(
-      List<SelectableItem> items, String query) {
+    List<SelectableItem> items,
+    String query,
+  ) {
     if (query.isEmpty) return items;
 
     final lowercaseQuery = query.toLowerCase().trim();
@@ -185,15 +187,18 @@ class ItemData {
 
     final distance = _levenshteinDistance(query, text);
     final maxAllowedDistance = (query.length / 3).ceil(); // Adaptive threshold
-    final threshold =
-        maxDistance < maxAllowedDistance ? maxDistance : maxAllowedDistance;
+    final threshold = maxDistance < maxAllowedDistance
+        ? maxDistance
+        : maxAllowedDistance;
 
     return distance <= threshold;
   }
 
   /// Search items with fuzzy matching for typos and misspellings
   static List<SelectableItem> searchItemsWithFuzzy(
-      List<SelectableItem> items, String query) {
+    List<SelectableItem> items,
+    String query,
+  ) {
     if (query.isEmpty) return items;
 
     final lowercaseQuery = query.toLowerCase().trim();
@@ -252,9 +257,11 @@ class ItemData {
 
     if (kDebugMode) {
       debugPrint(
-          'DEBUG: Fuzzy search "$query" - found ${results.length} items');
+        'DEBUG: Fuzzy search "$query" - found ${results.length} items',
+      );
       debugPrint(
-          'DEBUG: Exact: ${exactMatches.length}, StartsWith: ${startsWithMatches.length}, Contains: ${containsMatches.length}, Fuzzy: ${fuzzyMatches.length}');
+        'DEBUG: Exact: ${exactMatches.length}, StartsWith: ${startsWithMatches.length}, Contains: ${containsMatches.length}, Fuzzy: ${fuzzyMatches.length}',
+      );
     }
     return results;
   }

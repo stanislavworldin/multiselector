@@ -27,10 +27,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Multiselector Demo',
       theme: _isDarkTheme ? ThemeData.dark() : ThemeData.light(),
-      home: MyHomePage(
-        onThemeChanged: _toggleTheme,
-        isDarkTheme: _isDarkTheme,
-      ),
+      home: MyHomePage(onThemeChanged: _toggleTheme, isDarkTheme: _isDarkTheme),
     );
   }
 }
@@ -122,9 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
         foregroundColor: Colors.white,
         actions: [
           IconButton(
-            icon: Icon(
-              widget.isDarkTheme ? Icons.light_mode : Icons.dark_mode,
-            ),
+            icon: Icon(widget.isDarkTheme ? Icons.light_mode : Icons.dark_mode),
             onPressed: widget.onThemeChanged,
           ),
         ],
@@ -165,10 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // Single fruit selector
           const Text(
             'Select a fruit:',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           UniversalSelector(
@@ -193,10 +185,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // Multi-select example
           const Text(
             'Multi-select fruits:',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           UniversalSelector(
@@ -227,10 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
           if (selectedItem != null) ...[
             const Text(
               'Selected Fruit:',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Container(
@@ -283,10 +269,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 16),
             const Text(
               'Selected Fruits:',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Wrap(
@@ -294,13 +277,16 @@ class _MyHomePageState extends State<MyHomePage> {
               runSpacing: 8,
               children: selectedItems.map((item) {
                 return Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.blue.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20),
-                    border:
-                        Border.all(color: Colors.blue.withValues(alpha: 0.3)),
+                    border: Border.all(
+                      color: Colors.blue.withValues(alpha: 0.3),
+                    ),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -338,10 +324,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Text(
                   'Features:',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 8),
                 Text('• Single item selection'),

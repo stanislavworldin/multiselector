@@ -19,8 +19,9 @@ void main() {
       ),
     ];
 
-    testWidgets('Multi-select mode works without onItemSelected',
-        (WidgetTester tester) async {
+    testWidgets('Multi-select mode works without onItemSelected', (
+      WidgetTester tester,
+    ) async {
       List<SelectableItem> selectedItems = [];
       bool callbackCalled = false;
 
@@ -45,8 +46,9 @@ void main() {
       expect(callbackCalled, false);
     });
 
-    testWidgets('Single-select mode requires onItemSelected',
-        (WidgetTester tester) async {
+    testWidgets('Single-select mode requires onItemSelected', (
+      WidgetTester tester,
+    ) async {
       SelectableItem? selectedItem;
       bool callbackCalled = false;
 
@@ -71,8 +73,9 @@ void main() {
       expect(callbackCalled, false);
     });
 
-    testWidgets('Multi-select mode ignores onItemSelected if provided',
-        (WidgetTester tester) async {
+    testWidgets('Multi-select mode ignores onItemSelected if provided', (
+      WidgetTester tester,
+    ) async {
       List<SelectableItem> selectedItems = [];
       bool multiCallbackCalled = false;
       bool singleCallbackCalled = false;

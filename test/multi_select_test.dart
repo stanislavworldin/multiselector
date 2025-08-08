@@ -48,8 +48,9 @@ void main() {
       expect(find.byType(UniversalSelector), findsOneWidget);
     });
 
-    testWidgets('Multi-select shows selected items count',
-        (WidgetTester tester) async {
+    testWidgets('Multi-select shows selected items count', (
+      WidgetTester tester,
+    ) async {
       final selectedItems = [
         const SelectableItem(
           id: '1',
@@ -81,8 +82,9 @@ void main() {
       expect(find.text('2 items selected'), findsOneWidget);
     });
 
-    testWidgets('Multi-select with max selections',
-        (WidgetTester tester) async {
+    testWidgets('Multi-select with max selections', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(

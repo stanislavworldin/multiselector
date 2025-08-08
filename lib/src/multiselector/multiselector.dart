@@ -49,10 +49,10 @@ class UniversalSelector extends StatefulWidget {
     this.hoverColor,
     this.borderRadius,
   }) : assert(
-          (!isMultiSelect && onItemSelected != null) ||
-              (isMultiSelect && onItemsSelected != null),
-          'onItemSelected must be provided for single-select mode, onItemsSelected must be provided for multi-select mode',
-        );
+         (!isMultiSelect && onItemSelected != null) ||
+             (isMultiSelect && onItemsSelected != null),
+         'onItemSelected must be provided for single-select mode, onItemsSelected must be provided for multi-select mode',
+       );
 
   @override
   State<UniversalSelector> createState() => _UniversalSelectorState();
@@ -69,27 +69,37 @@ class _UniversalSelectorState extends State<UniversalSelector> {
   // Constants for performance optimization
   static const TextStyle _iconTextStyle = TextStyle(fontSize: 20);
 
-  static const EdgeInsets _itemPadding =
-      EdgeInsets.symmetric(horizontal: 12, vertical: 8);
-  static const EdgeInsets _buttonPadding =
-      EdgeInsets.symmetric(horizontal: 12, vertical: 10);
-  static const EdgeInsets _itemMargin =
-      EdgeInsets.symmetric(horizontal: 8, vertical: 1);
+  static const EdgeInsets _itemPadding = EdgeInsets.symmetric(
+    horizontal: 12,
+    vertical: 8,
+  );
+  static const EdgeInsets _buttonPadding = EdgeInsets.symmetric(
+    horizontal: 12,
+    vertical: 10,
+  );
+  static const EdgeInsets _itemMargin = EdgeInsets.symmetric(
+    horizontal: 8,
+    vertical: 1,
+  );
 
   static const SizedBox _spacer12 = SizedBox(width: 12);
   static const SizedBox _spacer10 = SizedBox(width: 10);
   static const SizedBox _spacer2 = SizedBox(height: 2);
 
   // Default colors for dark theme
-  static const Color _defaultBackgroundColor =
-      Color(0xFF302E2C); // Original dark theme
-  static const Color _defaultHeaderColor =
-      Color(0xFF3C3A38); // Original dark theme
+  static const Color _defaultBackgroundColor = Color(
+    0xFF302E2C,
+  ); // Original dark theme
+  static const Color _defaultHeaderColor = Color(
+    0xFF3C3A38,
+  ); // Original dark theme
   static const Color _defaultTextColor = Colors.white;
-  static const Color _defaultAccentColor =
-      Color(0xFF699B4B); // Original green accent
-  static const Color _defaultSearchFieldColor =
-      Color(0x0D000000); // Original 5% white
+  static const Color _defaultAccentColor = Color(
+    0xFF699B4B,
+  ); // Original green accent
+  static const Color _defaultSearchFieldColor = Color(
+    0x0D000000,
+  ); // Original 5% white
   static const Color _defaultSearchFieldBorderColor = Colors.white24;
   static const Color _defaultCursorColor = Colors.white;
   static const Color _defaultHintTextColor = Colors.white54;
@@ -121,7 +131,8 @@ class _UniversalSelectorState extends State<UniversalSelector> {
     if (kDebugMode) {
       debugPrint('DEBUG: Initialized with ${_allItems.length} items');
       debugPrint(
-          'DEBUG: MultiSelect: ${widget.isMultiSelect}, Selected: ${_selectedItems.length}');
+        'DEBUG: MultiSelect: ${widget.isMultiSelect}, Selected: ${_selectedItems.length}',
+      );
     }
   }
 
@@ -194,7 +205,8 @@ class _UniversalSelectorState extends State<UniversalSelector> {
             _selectedItems.length >= widget.maxSelections!) {
           if (kDebugMode) {
             debugPrint(
-                'DEBUG: Max selections reached (${widget.maxSelections})');
+              'DEBUG: Max selections reached (${widget.maxSelections})',
+            );
           }
           return;
         }
@@ -234,8 +246,9 @@ class _UniversalSelectorState extends State<UniversalSelector> {
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       shape: RoundedRectangleBorder(
-        borderRadius:
-            BorderRadius.vertical(top: Radius.circular(borderRadius * 2)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(borderRadius * 2),
+        ),
       ),
       builder: (context) => StatefulBuilder(
         builder: (context, setModalState) {
@@ -252,7 +265,8 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                     decoration: BoxDecoration(
                       color: headerColor,
                       borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(borderRadius * 2)),
+                        top: Radius.circular(borderRadius * 2),
+                      ),
                     ),
                     child: Column(
                       children: [
@@ -285,7 +299,8 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                               Text(
                                 _selectedItems.length.toString(),
                                 key: ValueKey(
-                                    'selected_count_${_selectedItems.length}'),
+                                  'selected_count_${_selectedItems.length}',
+                                ),
                                 style: TextStyle(
                                   color: accentColor,
                                   fontSize: 14,
@@ -315,7 +330,9 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                             color: searchFieldColor,
                             borderRadius: BorderRadius.circular(borderRadius),
                             border: Border.all(
-                                color: searchFieldBorderColor, width: 0.5),
+                              color: searchFieldBorderColor,
+                              width: 0.5,
+                            ),
                           ),
                           child: TextField(
                             controller: _searchController,
@@ -333,14 +350,22 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                             },
                             decoration: InputDecoration(
                               hintText: widget.hintText ?? 'Search items...',
-                              hintStyle:
-                                  TextStyle(color: hintTextColor, fontSize: 14),
-                              prefixIcon: Icon(Icons.search,
-                                  color: hintTextColor, size: 20),
+                              hintStyle: TextStyle(
+                                color: hintTextColor,
+                                fontSize: 14,
+                              ),
+                              prefixIcon: Icon(
+                                Icons.search,
+                                color: hintTextColor,
+                                size: 20,
+                              ),
                               suffixIcon: _isSearching
                                   ? IconButton(
-                                      icon: Icon(Icons.clear,
-                                          color: hintTextColor, size: 18),
+                                      icon: Icon(
+                                        Icons.clear,
+                                        color: hintTextColor,
+                                        size: 18,
+                                      ),
                                       onPressed: () {
                                         _searchController.clear();
                                         setModalState(() {
@@ -353,7 +378,9 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                                   : null,
                               border: InputBorder.none,
                               contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 14),
+                                horizontal: 12,
+                                vertical: 14,
+                              ),
                               isDense: false,
                               alignLabelWithHint: true,
                             ),
@@ -365,13 +392,15 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                   Expanded(
                     child: ListView.builder(
                       key: ValueKey(
-                          'item_list_${_filteredItems.length}_${_selectedItems.length}_$_updateCounter'),
+                        'item_list_${_filteredItems.length}_${_selectedItems.length}_$_updateCounter',
+                      ),
                       controller: scrollController,
                       itemCount: _filteredItems.length,
                       itemBuilder: (context, index) {
                         final item = _filteredItems[index];
                         final isSelected = _isItemSelected(item);
-                        final isMaxReached = widget.isMultiSelect &&
+                        final isMaxReached =
+                            widget.isMultiSelect &&
                             widget.maxSelections != null &&
                             _selectedItems.length >= widget.maxSelections! &&
                             !isSelected;
@@ -389,8 +418,9 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                borderRadius:
-                                    BorderRadius.circular(borderRadius),
+                                borderRadius: BorderRadius.circular(
+                                  borderRadius,
+                                ),
                                 hoverColor: isMaxReached
                                     ? Colors.grey.withValues(alpha: 0.1)
                                     : hoverColor,
@@ -398,17 +428,16 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                                     ? null
                                     : () {
                                         _toggleItemSelection(
-                                            item, setModalState);
+                                          item,
+                                          setModalState,
+                                        );
                                       },
                                 child: Padding(
                                   padding: _itemPadding,
                                   child: Row(
                                     children: [
                                       if (item.icon != null) ...[
-                                        Text(
-                                          item.icon!,
-                                          style: _iconTextStyle,
-                                        ),
+                                        Text(item.icon!, style: _iconTextStyle),
                                         _spacer12,
                                       ],
                                       Expanded(
@@ -436,7 +465,8 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                                                 style: TextStyle(
                                                   color: isSelected
                                                       ? accentColor.withValues(
-                                                          alpha: 0.7)
+                                                          alpha: 0.7,
+                                                        )
                                                       : hintTextColor,
                                                   fontSize: 12,
                                                 ),
@@ -525,10 +555,7 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                     Expanded(
                       child: Text(
                         widget.hintText ?? 'Select items...',
-                        style: TextStyle(
-                          color: hintTextColor,
-                          fontSize: 14,
-                        ),
+                        style: TextStyle(color: hintTextColor, fontSize: 14),
                       ),
                     ),
                   ],
@@ -572,10 +599,7 @@ class _UniversalSelectorState extends State<UniversalSelector> {
                   Expanded(
                     child: Text(
                       widget.hintText ?? 'Select an item',
-                      style: TextStyle(
-                        color: hintTextColor,
-                        fontSize: 14,
-                      ),
+                      style: TextStyle(color: hintTextColor, fontSize: 14),
                     ),
                   ),
                 ],
